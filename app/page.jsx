@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <h1>Hi there, working fine here</h1>
-      <Button>Click me!</Button>
+      <Button variant="gold" size="hero">Click me!</Button>
       <Card></Card>
     </div>
   );
