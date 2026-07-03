@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { AVATARS } from "@/lib/data";
+import { CodeDemo } from "@/components/demo-components-animate-code";
 
 export default function Home() {
   return (
     <div className="bg-black overflow-x-hidden">
       <section className="relative min-h-screen grid grid-cols-1 lg:grid-cols-5 px-4 sm:px-8 pt-28 sm:pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0">
           <StarsBackground />
         </div>
 
@@ -53,6 +54,8 @@ export default function Home() {
                   }`}
                 >
                   <img
+                    width={40}
+                    height={40}
                     src={avatar.src}
                     alt={`Avatar ${index + 1}`}
                     className="w-10 h-10 object-cover"
@@ -68,6 +71,12 @@ export default function Home() {
             </p>
           </div>
         </div>
+
+        {/* RIGHT */}
+  
+         <div className="col-span-full lg:col-span-2 flex items-center justify-center lg:justify-start mt-12 lg:mt-0 lg:rotate-3">
+         <CodeDemo duration={30000} writing />
+         </div>
       </section>
     </div>
   );
