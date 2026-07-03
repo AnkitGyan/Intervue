@@ -2,8 +2,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Header from "@/components/header";
 import { DM_Sans, Lora } from "next/font/google";
-// import { ClerkProvider } from "@clerk/nextjs";
-// import { dark } from "@clerk/themes";
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
 import { Toaster } from "sonner";
 
 const lora = Lora({
@@ -26,11 +26,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    // <ClerkProvider
-    //   appearance={{
-    //     theme: dark,
-    //   }}
-    // >
+    <ClerkProvider
+      appearance={{
+        theme: dark,
+      }}
+    >
       <html lang="en" suppressHydrationWarning>
         <head />
         <body className={`${lora.variable} ${dmSans.variable} font-sans`}>
@@ -50,6 +50,6 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
         </body>
       </html>
-    // </ClerkProvider>
+   </ClerkProvider>
   );
 }
