@@ -7,6 +7,8 @@ import Image from "next/image";
 import { AVATARS } from "@/lib/data";
 import { CodeDemo } from "@/components/demo-components-animate-code";
 import { LOGOS } from "@/lib/data";
+import { SectionLabel, SectionHeading } from "@/components/reusables";
+import { BentoCard } from "@/components/BentoCard";
 
 export default function Home() {
   return (
@@ -98,6 +100,19 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+        {/* FEATURES */}
+      <section className="relative z-10 py-28 max-w-5xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <SectionLabel>Features</SectionLabel>
+          <SectionHeading
+            gray="Everything you need,"
+            gold="nothing you don't"
+          />
+        </div>
+      </section>
+      <BentoCard></BentoCard>
+
     </div>
   );
 }
