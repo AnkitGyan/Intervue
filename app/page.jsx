@@ -9,6 +9,8 @@ import { SectionLabel, SectionHeading } from "@/components/reusables";
 import { BentoCard } from "@/components/BentoCard";
 import { Bot, Wallet } from "lucide-react";
 import { AI_TAGS, AVATARS, LOGOS, ROLES, SLOTS } from "@/lib/data";
+import PricingSection from "@/components/PricingSection";
+import { StarsBackgroundDemo } from "@/app/demo-components-backgrounds-stars";
 
 function MockUI({ rows = 3 }) {
   const widths = ["w-4/5", "w-3/5", "w-2/5", "w-4/5", "w-1/2"];
@@ -232,12 +234,51 @@ export default function Home() {
           </div>
         </div>
         </section>
-        <section className="relative z-10 py-28 max-w-5xl mx-auto px-6">
+          <section className="relative z-10 pb-28 max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
-          <SectionLabel>Who it&apos;s for</SectionLabel>
-          <SectionHeading gray="Built for both sided" gold="of the table" />
+          <SectionLabel>Pricing</SectionLabel>
+          <SectionHeading
+            gray="Simple, transparent"
+            gold="credit-based plans"
+          />
+          <p className="text-stone-400 mt-3 text-sm">
+            Each credit = one session. Unused credits roll over.
+          </p>
         </div>
-       </section>
+
+        <PricingSection />
+      </section>
+
+      {/* CTA */}
+      <section className="relative z-10 pb-28 max-w-5xl mx-auto px-6">
+        <div className="relative border border-amber-400/20 rounded-3xl px-3 sm:px-16 py-20 bg-linear-to-br from-amber-400/5 text-center overflow-hidden">
+          <StarsBackgroundDemo />
+
+          <h2 className="font-serif relative text-4xl md:text-5xl leading-tight tracking-tight mb-4">
+            <GrayTitle>Your next interview</GrayTitle>
+            <br />
+            <GoldTitle>starts here</GoldTitle>
+          </h2>
+
+          <p className="relative text-stone-400 font-light text-sm mb-11">
+            Join thousands of engineers already levelling up on Prept.
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link href="/onboarding" className="relative">
+              <Button variant="gold" size="hero">
+                Get started
+              </Button>
+            </Link>
+
+            <Link href="/explore" className="relative">
+              <Button variant="outline" size="hero">
+                Browse Interviewers →
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
 
     </div>
   );
