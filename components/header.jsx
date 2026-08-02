@@ -3,9 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { Card } from "./ui/card";
 import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import { checkUser } from "@/lib/checkUser";
 
 
-export default function Header(){
+export default async function Header(){
+  const user = await checkUser();
   return (
    <nav className="fixed top-0 inset-x-0 z-50 flex items-center justify-between px-10 py-3 border-b border-white/7 backdrop-blur-xl">
     {/* Logo */}
