@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Card } from "./ui/card";
 import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
 import { checkUser } from "@/lib/checkUser";
+import CreditButton from "./CreditButton";
+import { CalendarDays, Users } from "lucide-react";
 
 
 export default async function Header(){
@@ -49,23 +51,14 @@ export default async function Header(){
                </>
             )}
 
-            {user?.role === "INTERVIEWEE" && (
-              <>
-                <Button variant="ghost" asChild>
-                  <Link href="/explore">
-                    <Users size={16} />
-                    <span className="hidden md:inline">Explore</span>
-                  </Link>
-                </Button>
-                <Button variant="default" asChild>
-                  <Link href="/appointments">
-                    <CalendarDays size={16} />
-                    <span className="hidden md:inline">My Appointments</span>
-                  </Link>
-                </Button>
-              </>
-            )}
-
+             <CreditButton
+            role={user?.role === "INTERVIEWER" ? "INTERVIEWER" : "INTERVIEWEE"}
+            credits={
+              (user?.role === "INTERVIEWER"
+                ? user?.creditBalance
+                : user?.credits) ?? 0
+            }
+          />
 
               {/* credit */}
               <UserButton />
