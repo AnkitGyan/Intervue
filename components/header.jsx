@@ -32,6 +32,42 @@ export default async function Header(){
               </SignUpButton>
             </Show>
             <Show when="signed-in">
+            {user?.role === "INTERVIEWEE" && (
+              <>
+                <Button variant="ghost" asChild>
+                  <Link href="/explore">
+                    <Users size={16} />
+                    <span className="hidden md:inline">Explore</span>
+                  </Link>
+                </Button>
+                <Button variant="default" asChild>
+                  <Link href="/appointments">
+                    <CalendarDays size={16} />
+                    <span className="hidden md:inline">My Appointments</span>
+                  </Link>
+                </Button>
+               </>
+            )}
+
+            {user?.role === "INTERVIEWEE" && (
+              <>
+                <Button variant="ghost" asChild>
+                  <Link href="/explore">
+                    <Users size={16} />
+                    <span className="hidden md:inline">Explore</span>
+                  </Link>
+                </Button>
+                <Button variant="default" asChild>
+                  <Link href="/appointments">
+                    <CalendarDays size={16} />
+                    <span className="hidden md:inline">My Appointments</span>
+                  </Link>
+                </Button>
+              </>
+            )}
+
+
+              {/* credit */}
               <UserButton />
             </Show>
     </div>

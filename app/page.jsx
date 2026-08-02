@@ -11,6 +11,7 @@ import { Bot, Wallet } from "lucide-react";
 import { AI_TAGS, AVATARS, LOGOS, ROLES, SLOTS } from "@/lib/data";
 import PricingSection from "@/components/PricingSection";
 import { StarsBackgroundDemo } from "@/app/demo-components-backgrounds-stars";
+import { PricingTable } from "@clerk/nextjs";
 
 function MockUI({ rows = 3 }) {
   const widths = ["w-4/5", "w-3/5", "w-2/5", "w-4/5", "w-1/2"];
@@ -246,7 +247,15 @@ export default function Home() {
           </p>
         </div>
 
-        <PricingSection />
+        <PricingTable checkoutProps={{
+          appearance:{
+            elements:{
+              drawerRoot:{
+                zIndex: 2000
+              }
+            }
+          }
+        }} />
       </section>
 
       {/* CTA */}
