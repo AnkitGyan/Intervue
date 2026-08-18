@@ -6,6 +6,7 @@ import { ClerkProvider, Show, SignInButton, SignUpButton, UserButton } from '@cl
 import { checkUser } from "@/lib/checkUser";
 import CreditButton from "./CreditButton";
 import { CalendarDays, Users } from "lucide-react";
+import RoleRedirect from "./RoleRedirect";
 
 
 export default async function Header(){
