@@ -23,6 +23,8 @@ export default async function Header(){
           priority
         />
       </Link>
+
+      {role && <RoleRedirect role={role} />}
     {/* Sign in */}
     <div className="flex items-center gap-3">
          <Show when="signed-out">
