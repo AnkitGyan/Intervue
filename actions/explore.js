@@ -29,7 +29,7 @@ export const getInterviewers = async () => {
           select: { startTime: true, endTime: true },
           take: 1,
         },
-      },
+      }, 
       orderBy: { createdAt: "desc" },
     });
 
