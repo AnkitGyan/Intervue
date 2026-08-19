@@ -2,7 +2,7 @@ import React from 'react'
 
 function MainLayout({ children}) {
   return (
-    <div className="container mx-auto my-32">
+    <div className="mt-16">
       {children}
     </div>
   )
