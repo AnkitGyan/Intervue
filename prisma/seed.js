@@ -4,12 +4,12 @@ import { PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
 
 // ── CHANGE THIS ───────────────────────────────────────────────────────────────
-const BOOKING_ID = "your-booking-id-here";
+const BOOKING_ID = "72ac9836-5f26-48c6-9e29-d0b4d9eb555b";
 // ─────────────────────────────────────────────────────────────────────────────
 
 const feedback = {
   summary:
-    "Piyush demonstrated a solid understanding of React fundamentals and component architecture. He approached problems methodically and showed good instincts around state management. With some refinement in system design and async patterns, he's well on track for a mid-level frontend role.",
+    "Ankit demonstrated a solid understanding of React fundamentals and component architecture. He approached problems methodically and showed good instincts around state management. With some refinement in system design and async patterns, he's well on track for a mid-level frontend role.",
 
   technical:
     "Strong grasp of React hooks, component lifecycle, and basic TypeScript. Handled the closure question confidently. Struggled slightly with the event loop explanation and needed hints on optimising a recursive tree traversal — but recovered well once guided.",
@@ -41,7 +41,7 @@ const feedback = {
   sessionRating: 4,
 
   sessionComment:
-    "Great session — Piyush was engaged and receptive to feedback. Would be happy to interview him again after he's done more system design prep.",
+    "Great session — Ankit was engaged and receptive to feedback. Would be happy to interview him again after he's done more system design prep.",
 };
 
 async function main() {
