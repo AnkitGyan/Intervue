@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: intervue
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: intervue
+
+  template:
+    metadata:
+      labels:
+        app: intervue
+
+    spec:
+      containers:
+        - name: intervue
+          image: ankitgyan/intervue:latest
+
+          ports:
+            - containerPort: 3000
+
+          envFrom:
+            - secretRef:
+                name: intervue-secrets
