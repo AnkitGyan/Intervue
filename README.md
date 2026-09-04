@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Intervue
+
+A full-stack interview management platform built with Next.js, Prisma, PostgreSQL, Clerk, and modern cloud-native technologies.
+
+## Overview
+
+<p align="center">
+  <img src="./public/Screenshot 2026-09-04 090017.png" alt="Intervue Dashboard" width="900"/>
+</p>
+Intervue is a full-stack interview management platform designed to streamline the process of scheduling, conducting, and managing technical interviews.
+
+The application provides authentication, interview management, appointment scheduling, feedback workflows, and a production-ready deployment architecture using Docker and Kubernetes.
+
+The project is deployed on an AWS EC2 instance running k3s, with Traefik handling ingress and HTTPS certificates automatically through Let's Encrypt.
+
+---
+
+## Features
+
+- 🔐 Authentication and user management with Clerk
+- 📅 Interview and appointment management
+- 👨‍💻 Interviewer and candidate workflows
+- 📊 Dashboard for interview management
+- 📝 Interview feedback
+- 🔔 Email functionality
+- 🛡️ API and application protection with Arcjet
+- 🗄️ PostgreSQL database with Prisma ORM
+- 🐳 Dockerized application
+- ☸️ Kubernetes deployment using k3s
+- 🌐 Custom domain with HTTPS
+- 🔒 Automatic TLS certificates using Let's Encrypt
+- 🚀 CI/CD deployment through GitHub Actions
+- 📦 Docker images hosted on Docker Hub
+
+---
+
+## Tech Stack
+
+### Frontend & Backend
+
+- **Next.js 16**
+- **React 19**
+- **JavaScript**
+- **Prisma ORM**
+
+### Database
+
+- **PostgreSQL**
+- **Neon PostgreSQL**
+
+### Authentication & Security
+
+- **Clerk** — Authentication and user management
+- **Arcjet** — Security, bot detection and request protection
+
+### Infrastructure
+
+- **Docker**
+- **Docker Hub**
+- **Kubernetes**
+- **k3s**
+- **AWS EC2**
+- **Traefik**
+- **cert-manager**
+- **Let's Encrypt**
+
+### CI/CD
+
+- **GitHub Actions**
+
+---
 
 ## Getting Started
 
-First, run the development server:
+git clone https://github.com/AnkitGyan/Intervue.git
+cd Intervue
+npm install
 
-```bash
+## configure env
+
+DATABASE_URL=
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+ARCJET_KEY=
+ARCJET_ENV=
+
+RESEND_API_KEY=
+
+# generate prisma and migrate database
+
+npx prisma generate
+npx prisma migrate dev
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Running with Docker
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+docker build \
+--build-arg DATABASE_URL="<DATABASE_URL>" \
+-t intervue .
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+docker run \
+-p 3000:3000 \
+--env-file .env \
+intervue
 
-## Learn More
+## Running with Kubernetes
 
-To learn more about Next.js, take a look at the following resources:
+k8s/
+├── deployment.yml
+├── service.yml
+├── ingress.yml
+└── cluster-issuer.yml
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+kubectl apply -f k8s/
